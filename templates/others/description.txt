@@ -1,0 +1,29 @@
+ -  Repository git 
+ 
+       => https://github.com/MoiMemeMoussa/primaire
+	 
+ -  Interface swagger pour voir les API
+ 
+       => http://localhost:8080/swagger-ui.html
+  
+ -  Branche sur laquelle travailler = "develop"
+ 
+ -  Base de données = elem.sql à trouver  dans le dossier "database" de "src/main/resource"
+ 
+
+  Taches à faire:
+  
+  - Créer une année scolaire 
+  - Créer une classe
+  - Créer une matière)
+  
+  - Renseigner les classes d'une année scolaire 
+  - Renseigner les enseignants de chaque classe par année scolaire
+  - Rensiegner les matières de chaque classe par année scolaire
+  - Inscrire les élèves d'une classe par année scolaire
+  - Organier des examens 
+  - Saisie des notes 
+  - Generer des bulletins de notes
+	
+	  NB: Penser à la gestion des redoublants
+ 
