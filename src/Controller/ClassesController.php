@@ -6,16 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SchoolClassesController extends AbstractController
+class ClassesController extends AbstractController
 {
     /**
-     * @Route("/schoolclasses", name = "schoolclasses")
+     * @Route("/classes", name = "classes")
      */
     public function renderHomepage()
     {
         $classes = $this->callGET("classes");
 
-        return $this->render('schoolclasses.html.twig', [
+        return $this->render('classes.html.twig', [
             'classes' => $classes
         ]);
     }
