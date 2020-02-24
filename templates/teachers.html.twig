@@ -18,6 +18,7 @@
             <li>{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}</li>
         {% endfor %}
     </ul>
+    {{ form(teacherForm) }}
     <form action="{{ path('students') }}">
         <fieldset>
             <legend>Cr&eacute;er un enseignant</legend>
