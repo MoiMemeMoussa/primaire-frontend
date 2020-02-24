@@ -17,7 +17,6 @@ class YearsController extends AbstractController
     public function renderHomepage()
     {
         $years = $this->callGET("annees");
-        $schoolClasses = array("1");
 
         /*
         $task = new Task();
@@ -33,8 +32,7 @@ class YearsController extends AbstractController
         */
 
         return $this->render('years.html.twig', [
-            'years' => $years,
-            'schoolClasses' => $schoolClasses
+            'years' => $years
         ]);
     }
 

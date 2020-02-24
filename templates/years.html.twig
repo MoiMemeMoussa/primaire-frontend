@@ -12,6 +12,12 @@
 
 {% block body %}
     {{ parent() }}
+    <h3>Liste des ann&eacute;es scolaires :</h3>
+    <ul>
+        {% for year in years %}
+            <li>{{ year.value }}</li>
+        {% endfor %}
+    </ul>
     <form action="{{ path('classes') }}">
         <fieldset>
             <legend>Nouvelle ann&eacute;e scolaire</legend>
