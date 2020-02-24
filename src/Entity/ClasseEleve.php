@@ -40,5 +40,53 @@ class ClasseEleve
      */
     private $status;
 
+    public function getIdclasse(): ?int
+    {
+        return $this->idclasse;
+    }
+
+    public function setIdclasse(int $idclasse): self
+    {
+        $this->idclasse = $idclasse;
+
+        return $this;
+    }
+
+    public function getIdeleve(): ?int
+    {
+        return $this->ideleve;
+    }
+
+    public function setIdeleve(int $ideleve): self
+    {
+        $this->ideleve = $ideleve;
+
+        return $this;
+    }
+
+    public function getIdannee(): ?int
+    {
+        return $this->idannee;
+    }
+
+    public function setIdannee(int $idannee): self
+    {
+        $this->idannee = $idannee;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
 
 }

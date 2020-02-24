@@ -40,5 +40,53 @@ class ClasseMatiere
      */
     private $bareme;
 
+    public function getIdclasse(): ?int
+    {
+        return $this->idclasse;
+    }
+
+    public function setIdclasse(int $idclasse): self
+    {
+        $this->idclasse = $idclasse;
+
+        return $this;
+    }
+
+    public function getIdmatiere(): ?int
+    {
+        return $this->idmatiere;
+    }
+
+    public function setIdmatiere(int $idmatiere): self
+    {
+        $this->idmatiere = $idmatiere;
+
+        return $this;
+    }
+
+    public function getIdannee(): ?int
+    {
+        return $this->idannee;
+    }
+
+    public function setIdannee(int $idannee): self
+    {
+        $this->idannee = $idannee;
+
+        return $this;
+    }
+
+    public function getBareme(): ?int
+    {
+        return $this->bareme;
+    }
+
+    public function setBareme(?int $bareme): self
+    {
+        $this->bareme = $bareme;
+
+        return $this;
+    }
+
 
 }

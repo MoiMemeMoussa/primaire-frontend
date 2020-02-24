@@ -47,5 +47,65 @@ class AnneeTrimestre
      */
     private $id;
 
+    public function getIdannee(): ?int
+    {
+        return $this->idannee;
+    }
+
+    public function setIdannee(int $idannee): self
+    {
+        $this->idannee = $idannee;
+
+        return $this;
+    }
+
+    public function getIdtrimestre(): ?int
+    {
+        return $this->idtrimestre;
+    }
+
+    public function setIdtrimestre(int $idtrimestre): self
+    {
+        $this->idtrimestre = $idtrimestre;
+
+        return $this;
+    }
+
+    public function getEnddate(): ?\DateTimeInterface
+    {
+        return $this->enddate;
+    }
+
+    public function setEnddate(?\DateTimeInterface $enddate): self
+    {
+        $this->enddate = $enddate;
+
+        return $this;
+    }
+
+    public function getStartdate(): ?\DateTimeInterface
+    {
+        return $this->startdate;
+    }
+
+    public function setStartdate(?\DateTimeInterface $startdate): self
+    {
+        $this->startdate = $startdate;
+
+        return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

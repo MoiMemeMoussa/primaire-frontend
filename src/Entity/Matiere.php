@@ -26,5 +26,29 @@ class Matiere
      */
     private $name;
 
+    public function getIdmatiere(): ?int
+    {
+        return $this->idmatiere;
+    }
+
+    public function setIdmatiere(int $idmatiere): self
+    {
+        $this->idmatiere = $idmatiere;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
 
 }

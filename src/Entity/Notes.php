@@ -47,5 +47,65 @@ class Notes
      */
     private $value;
 
+    public function getIdmatiere(): ?int
+    {
+        return $this->idmatiere;
+    }
+
+    public function setIdmatiere(int $idmatiere): self
+    {
+        $this->idmatiere = $idmatiere;
+
+        return $this;
+    }
+
+    public function getIdeleve(): ?int
+    {
+        return $this->ideleve;
+    }
+
+    public function setIdeleve(int $ideleve): self
+    {
+        $this->ideleve = $ideleve;
+
+        return $this;
+    }
+
+    public function getIdclasse(): ?int
+    {
+        return $this->idclasse;
+    }
+
+    public function setIdclasse(int $idclasse): self
+    {
+        $this->idclasse = $idclasse;
+
+        return $this;
+    }
+
+    public function getIdannee(): ?int
+    {
+        return $this->idannee;
+    }
+
+    public function setIdannee(int $idannee): self
+    {
+        $this->idannee = $idannee;
+
+        return $this;
+    }
+
+    public function getValue(): ?int
+    {
+        return $this->value;
+    }
+
+    public function setValue(?int $value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
 
 }

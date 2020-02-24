@@ -68,5 +68,101 @@ class Eleve
      */
     private $place;
 
+    public function getIdeleve(): ?int
+    {
+        return $this->ideleve;
+    }
+
+    public function setIdeleve(int $ideleve): self
+    {
+        $this->ideleve = $ideleve;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getFather(): ?string
+    {
+        return $this->father;
+    }
+
+    public function setFather(string $father): self
+    {
+        $this->father = $father;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): self
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getMother(): ?string
+    {
+        return $this->mother;
+    }
+
+    public function setMother(string $mother): self
+    {
+        $this->mother = $mother;
+
+        return $this;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(string $place): self
+    {
+        $this->place = $place;
+
+        return $this;
+    }
+
 
 }

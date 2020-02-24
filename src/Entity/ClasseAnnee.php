@@ -26,5 +26,29 @@ class ClasseAnnee
      */
     private $idannee;
 
+    public function getIdclasse(): ?int
+    {
+        return $this->idclasse;
+    }
+
+    public function setIdclasse(int $idclasse): self
+    {
+        $this->idclasse = $idclasse;
+
+        return $this;
+    }
+
+    public function getIdannee(): ?int
+    {
+        return $this->idannee;
+    }
+
+    public function setIdannee(int $idannee): self
+    {
+        $this->idannee = $idannee;
+
+        return $this;
+    }
+
 
 }

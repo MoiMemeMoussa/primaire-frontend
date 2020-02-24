@@ -26,5 +26,29 @@ class Classe
      */
     private $name;
 
+    public function getIdclasse(): ?int
+    {
+        return $this->idclasse;
+    }
+
+    public function setIdclasse(int $idclasse): self
+    {
+        $this->idclasse = $idclasse;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
 
 }

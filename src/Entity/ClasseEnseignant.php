@@ -47,5 +47,65 @@ class ClasseEnseignant
      */
     private $startdate;
 
+    public function getMatricule(): ?string
+    {
+        return $this->matricule;
+    }
+
+    public function setMatricule(string $matricule): self
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    public function getIdclasse(): ?int
+    {
+        return $this->idclasse;
+    }
+
+    public function setIdclasse(int $idclasse): self
+    {
+        $this->idclasse = $idclasse;
+
+        return $this;
+    }
+
+    public function getIdannee(): ?string
+    {
+        return $this->idannee;
+    }
+
+    public function setIdannee(string $idannee): self
+    {
+        $this->idannee = $idannee;
+
+        return $this;
+    }
+
+    public function getEnddate(): ?\DateTimeInterface
+    {
+        return $this->enddate;
+    }
+
+    public function setEnddate(?\DateTimeInterface $enddate): self
+    {
+        $this->enddate = $enddate;
+
+        return $this;
+    }
+
+    public function getStartdate(): ?\DateTimeInterface
+    {
+        return $this->startdate;
+    }
+
+    public function setStartdate(?\DateTimeInterface $startdate): self
+    {
+        $this->startdate = $startdate;
+
+        return $this;
+    }
+
 
 }
