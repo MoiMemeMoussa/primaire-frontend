@@ -15,6 +15,7 @@ class Enseignant
     /**
      * @var string
      *
+     * @ORM\Id
      * @ORM\Column(name="matricule", type="string", length=11, nullable=false)
      */
     private $matricule;

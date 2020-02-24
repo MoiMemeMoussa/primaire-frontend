@@ -15,6 +15,7 @@ class EleveMatricule
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idEleve", type="integer", nullable=false)
      */
     private $ideleve;
@@ -22,6 +23,7 @@ class EleveMatricule
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idClasse", type="integer", nullable=false)
      */
     private $idclasse;

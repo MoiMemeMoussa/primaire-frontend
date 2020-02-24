@@ -15,6 +15,7 @@ class ClasseEnseignant
     /**
      * @var string
      *
+     * @ORM\Id
      * @ORM\Column(name="matricule", type="string", length=255, nullable=false)
      */
     private $matricule;
@@ -22,6 +23,7 @@ class ClasseEnseignant
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idClasse", type="integer", nullable=false)
      */
     private $idclasse;
@@ -29,6 +31,7 @@ class ClasseEnseignant
     /**
      * @var string
      *
+     * @ORM\Id
      * @ORM\Column(name="idAnnee", type="string", length=255, nullable=false)
      */
     private $idannee;

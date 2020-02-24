@@ -15,6 +15,7 @@ class Notes
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idMatiere", type="integer", nullable=false)
      */
     private $idmatiere;
@@ -22,6 +23,7 @@ class Notes
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idEleve", type="integer", nullable=false)
      */
     private $ideleve;
@@ -29,6 +31,7 @@ class Notes
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idClasse", type="integer", nullable=false)
      */
     private $idclasse;
@@ -36,6 +39,7 @@ class Notes
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idAnnee", type="integer", nullable=false)
      */
     private $idannee;

@@ -15,6 +15,7 @@ class Eleve
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idEleve", type="integer", nullable=false)
      */
     private $ideleve;

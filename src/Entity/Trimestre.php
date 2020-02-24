@@ -15,6 +15,7 @@ class Trimestre
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="id", type="bigint", nullable=false)
      */
     private $id;

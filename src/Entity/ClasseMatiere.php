@@ -15,6 +15,7 @@ class ClasseMatiere
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idClasse", type="integer", nullable=false)
      */
     private $idclasse;
@@ -22,6 +23,7 @@ class ClasseMatiere
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idMatiere", type="integer", nullable=false)
      */
     private $idmatiere;
@@ -29,6 +31,7 @@ class ClasseMatiere
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idAnnee", type="integer", nullable=false)
      */
     private $idannee;

@@ -15,6 +15,7 @@ class AnneeTrimestre
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idAnnee", type="integer", nullable=false)
      */
     private $idannee;
@@ -22,6 +23,7 @@ class AnneeTrimestre
     /**
      * @var int
      *
+     * @ORM\Id
      * @ORM\Column(name="idTrimestre", type="integer", nullable=false)
      */
     private $idtrimestre;
