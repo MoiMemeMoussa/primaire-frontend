@@ -12,11 +12,11 @@ class TeacherType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('matricule')
             ->add('firstname')
-            ->add('title')
             ->add('lastname')
+            ->add('matricule')
             ->add('phone')
+            ->add('title')
         ;
     }
 
