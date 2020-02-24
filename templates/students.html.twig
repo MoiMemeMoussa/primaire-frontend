@@ -12,6 +12,12 @@
 
 {% block body %}
     {{ parent() }}
+    <h3>Liste des &eacute;tudiants :</h3>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.firstName }} {{ student.lastName }}</li>
+        {% endfor %}
+    </ul>
     <form>
         <fieldset>
             <legend>Cr&eacute;er un &eacute;l&egrave;ve</legend>
