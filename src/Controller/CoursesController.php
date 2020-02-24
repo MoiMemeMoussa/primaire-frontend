@@ -13,12 +13,10 @@ class CoursesController extends AbstractController
      */
     public function renderHomepage()
     {
-        $schoolYears = $this->callGET("annees");
-        $schoolClasses = array("1");
+        $courses = $this->callGET("matieres");
 
         return $this->render('courses.html.twig', [
-            'schoolYears' => $schoolYears,
-            'schoolClasses' => $schoolClasses
+            'courses' => $courses
         ]);
     }
 
