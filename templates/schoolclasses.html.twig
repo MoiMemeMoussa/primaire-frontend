@@ -12,6 +12,12 @@
 
 {% block body %}
     {{ parent() }}
+    <h3>Liste des classes :</h3>
+    <ul>
+        {% for class in classes %}
+            <li>{{ class.name }}</li>
+        {% endfor %}
+    </ul>
     <form action="{{ path('courses') }}">
         <fieldset>
             <legend>Nouvelle classe</legend>
