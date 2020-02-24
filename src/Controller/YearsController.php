@@ -9,14 +9,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SchoolYearsController extends AbstractController
+class YearsController extends AbstractController
 {
     /**
-     * @Route("/schoolyears", name = "schoolyears")
+     * @Route("/years", name = "years")
      */
     public function renderHomepage()
     {
-        $schoolYears = $this->callGET("annees");
+        $years = $this->callGET("annees");
         $schoolClasses = array("1");
 
         /*
@@ -32,8 +32,8 @@ class SchoolYearsController extends AbstractController
             ->getForm();
         */
 
-        return $this->render('schoolyears.html.twig', [
-            'schoolYears' => $schoolYears,
+        return $this->render('years.html.twig', [
+            'years' => $years,
             'schoolClasses' => $schoolClasses
         ]);
     }
