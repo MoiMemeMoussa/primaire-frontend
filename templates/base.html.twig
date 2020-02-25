@@ -10,10 +10,10 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}
-            {% include('menu.html.twig') %}
-        {% endblock %}
         <div id="wrapper">
+            {% block body %}
+                {% include('menu.html.twig') %}
+            {% endblock %}
             <div id="content-wrapper" class="d-flex flex-column">
                 <div class="content">
                     <div class="container-fluid">
