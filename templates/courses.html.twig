@@ -19,23 +19,15 @@
                 <li>{{ course.name }}</li>
             {% endfor %}
         </ul>
-        <form action="{{ path('teachers') }}">
-            <fieldset>
-                <legend>Cr&eacute;er une mati&egrave;re</legend>
-                <div class="form-group row">
-                    <label for="course" class="col col-form-label">Mati&egrave;re :</label>
-                    <div class="col">
-                        <input id="course" class="form-control" type="text"/>
-                    </div>
+        {{ form(courseForm) }}
+        <form>
+            <div class="form-group row">
+                <label for="group" class="col col-form-label">Groupe :</label>
+                <div class="col">
+                    <input id="group" class="form-control" type="text"/>
                 </div>
-                <div class="form-group row">
-                    <label for="group" class="col col-form-label">Groupe :</label>
-                    <div class="col">
-                        <input id="group" class="form-control" type="text"/>
-                    </div>
-                </div>
-                <input type="submit" class="btn btn-primary" value="Valider"/>
-            </fieldset>
+            </div>
         </form>
+        <a href="{{ path('teachers') }}">Cr&eacute;er un enseignant</a>
     </main>
 {% endblock %}
