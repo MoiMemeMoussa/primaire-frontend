@@ -12,12 +12,14 @@
 
 {% block body %}
     {{ parent() }}
-    <h3>Liste des enseignants :</h3>
-    <ul>
-        {% for teacher in teachers %}
-            <li>{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}</li>
-        {% endfor %}
-    </ul>
-    {{ form(teacherForm) }}
-    <a href="{{ path('students') }}">Cr&eacute;er un enseignant</a>
+    <main>
+        <h3>Liste des enseignants :</h3>
+        <ul>
+            {% for teacher in teachers %}
+                <li>{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}</li>
+            {% endfor %}
+        </ul>
+        {{ form(teacherForm) }}
+        <a href="{{ path('students') }}">Cr&eacute;er un enseignant</a>
+    </main>
 {% endblock %}
