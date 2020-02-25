@@ -1,13 +1,77 @@
 <nav>
-    <ul class="list-group">
-        <li class="list-group-item"><a href="{{ path('home') }}">Nouvelle ann&eacute;e scolaire</a></li>
-        <li class="list-group-item"><a href="{{ path('years') }}">Ann&eacute;es scolaires</a></li>
-        <li class="list-group-item"><a href="{{ path('classes') }}">Classes</a></li>
-        <li class="list-group-item"><a href="{{ path('courses') }}">Mati&egrave;res</a></li>
-        <li class="list-group-item"><a href="{{ path('teachers') }}">Enseignants</a></li>
-        <li class="list-group-item"><a href="{{ path('students') }}">El&egrave;ves</a></li>
-        <li class="list-group-item"><a href="{{ path('home') }}">Evaluations</a></li>
-        <li class="list-group-item"><a href="{{ path('home') }}">Notes</a></li>
-        <li class="list-group-item"><a href="{{ path('home') }}">Bulletins</a></li>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">SEN-PRIMAIRE</div>
+        </a>
+
+        <hr class="sidebar-divider my-0">
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Nouvelle ann&eacute;e scolaire</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('years') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Ann&eacute;es scolaires</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('classes') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Classes</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('courses') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Mati&egrave;res</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('teachers') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Enseignants</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('students') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>El&egrave;ves</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Evaluations</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Notes</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('home') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Bulletins</span>
+            </a>
+        </li>
+
     </ul>
 </nav>
