@@ -29,13 +29,13 @@
             </div>
         </div>
         <div id="school_classes">
-            {% for index, class in classes %}
+            {% for class in classes %}
                 <div class="form-group row">
-                    <label for="class" class="col col-form-label">Classe {{ index + 1 }}</label>
-                    <div class="col">
-                        <input id="class" class="form-control" type="text" value="{{ class.name }}"/>
+                    <div class="custom-control custom-checkbox">
+                        <input id="{{ class.idClasse }}" class="custom-control-input" type="checkbox" name="{{ class.idClasse }}"/>
+                        <label for="{{ class.idClasse }}" class="custom-control-label">{{ class.name }}</label>
                     </div>
-                    <label for="teacher" class="col col-form-label">Enseignant {{ index + 1 }}</label>
+                    <label for="teacher" class="col col-form-label">Enseignant</label>
                     <div class="col">
                         <input id="teacher" class="form-control" type="text" value="{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}"/>
                     </div>
