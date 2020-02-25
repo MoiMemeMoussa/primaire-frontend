@@ -19,17 +19,8 @@
                 <li>{{ class.name }}</li>
             {% endfor %}
         </ul>
-        <form action="{{ path('courses') }}">
-            <fieldset>
-                <legend>Nouvelle classe</legend>
-                <div class="form-group row">
-                    <label for="course" class="col col-form-label">Classe :</label>
-                    <div class="col">
-                        <input id="course" class="form-control" type="text"/>
-                    </div>
-                </div>
-                <input type="submit" class="btn btn-primary" value="Valider"/>
-            </fieldset>
-        </form>
+        <h3>Nouvelle classe :</h3>
+        {{ form(classForm) }}
+        <a href="{{ path('courses') }}">Cr&eacute;er une matière</a>
     </main>
 {% endblock %}

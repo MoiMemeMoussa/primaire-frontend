@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\ClassType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,31 +15,14 @@ class ClassesController extends AbstractController
      */
     public function renderHomepage()
     {
-        $classes = $this->callGET("classes");
+        $classes = RestAPI::callGET("classes");
+        $class = RestAPI::callGET("classes/1", "App\Entity\Classe");
+
+        $classForm = $this->createForm(ClassType::class, $class);
 
         return $this->render('classes.html.twig', [
-            'classes' => $classes
+            'classes' => $classes,
+            'classForm' => $classForm->createView()
         ]);
-    }
-
-    private function createSchoolYearOptions()
-    {
-        $schoolYears = callGET("annees");
-
-        foreach ($schoolYears as $schoolYear)
-        {
-            echo '<option value="' . $schoolYear->idAnnee . '">' . $schoolYear->value . '</option>';
-        }
-    }
-
-    private function callGET($url)
-    {
-        $client = curl_init("localhost:8080/" . $url);
-
-        curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($client);
-
-        return json_decode($response);
     }
 }
