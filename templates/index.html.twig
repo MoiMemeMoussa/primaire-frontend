@@ -12,53 +12,62 @@
 
 {% block body %}
     {{ parent() }}
-    <main>
-        <form>
-            <div class="form-group row">
-                <label for="school_year_field" class="col col-form-label">Choisir une ann&eacute;e scolaire :</label>
-                <div class="col">
-                    <select id="school_year_field" class="form-control">
-                        {% for schoolYear in schoolYears %}
-                            <option value="{{ schoolYear.idAnnee }}">{{ schoolYear.value }}</option>
-                        {% endfor %}
-                    </select>
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="container-fluid">
+                        <h1 class="h3 mb-4 text-gray-800">Nouvelle ann&eacute;e scolaire</h1>
+                    </div>
+                    <form>
+                        <div class="form-group row">
+                            <label for="school_year_field" class="col col-form-label">Choisir une ann&eacute;e scolaire :</label>
+                            <div class="col">
+                                <select id="school_year_field" class="form-control">
+                                    {% for schoolYear in schoolYears %}
+                                        <option value="{{ schoolYear.idAnnee }}">{{ schoolYear.value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div id="school_classes">
+                            {% for index, schoolClass in schoolClasses %}
+                                {{ schoolClass }}
+                            {% endfor %}
+                            <div class="form-group row">
+                                <label for="class" class="col col-form-label">Classe :</label>
+                                <div class="col">
+                                    <input id="class" class="form-control" type="text"/>
+                                </div>
+                                <label for="teacher" class="col col-form-label">Enseignant :</label>
+                                <div class="col">
+                                    <input id="teacher" class="form-control" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="class_2" class="col col-form-label">Classe 2 :</label>
+                                <div class="col">
+                                    <input id="class_2" class="form-control" type="text"/>
+                                </div>
+                                <label for="teacher_2" class="col col-form-label">Enseignant 2 :</label>
+                                <div class="col">
+                                    <input id="teacher_2" class="form-control" type="text"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="class_n" class="col col-form-label">Classe N :</label>
+                                <div class="col">
+                                    <input id="class_n" class="form-control" type="text"/>
+                                </div>
+                                <label for="teacher_n" class="col col-form-label">Enseignant N :</label>
+                                <div class="col">
+                                    <input id="teacher_n" class="form-control" type="text"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div id="school_classes">
-                {% for index, schoolClass in schoolClasses %}
-                    {{ schoolClass }}
-                {% endfor %}
-                <div class="form-group row">
-                    <label for="class" class="col col-form-label">Classe :</label>
-                    <div class="col">
-                        <input id="class" class="form-control" type="text"/>
-                    </div>
-                    <label for="teacher" class="col col-form-label">Enseignant :</label>
-                    <div class="col">
-                        <input id="teacher" class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="class_2" class="col col-form-label">Classe 2 :</label>
-                    <div class="col">
-                        <input id="class_2" class="form-control" type="text"/>
-                    </div>
-                    <label for="teacher_2" class="col col-form-label">Enseignant 2 :</label>
-                    <div class="col">
-                        <input id="teacher_2" class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="class_n" class="col col-form-label">Classe N :</label>
-                    <div class="col">
-                        <input id="class_n" class="form-control" type="text"/>
-                    </div>
-                    <label for="teacher_n" class="col col-form-label">Enseignant N :</label>
-                    <div class="col">
-                        <input id="teacher_n" class="form-control" type="text"/>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </main>
+        </div>
+    </div>
 {% endblock %}

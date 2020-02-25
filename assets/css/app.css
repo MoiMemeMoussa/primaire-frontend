@@ -8,18 +8,6 @@ form
     width: 800px;
 }
 
-h1
-{
-    font-weight: 700;
-    margin-bottom: 2em;
-    text-align: center;
-}
-
-h2
-{
-    background-color: lightgrey;
-}
-
 main
 {
     margin-left: 20%;
