@@ -9,11 +9,10 @@
     </head>
     <body>
         {% block body %}
+            {% include('menu.html.twig') %}
             <header>
-                <h1>SEN-PRIMAIRE</h1>
                 <h2>Bienvenue</h2>
             </header>
-            {% include('menu.html.twig') %}
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
