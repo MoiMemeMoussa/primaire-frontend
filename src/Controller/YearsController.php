@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\YearType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,44 +18,14 @@ class YearsController extends AbstractController
      */
     public function renderHomepage()
     {
-        $years = $this->callGET("annees");
+        $years = RestAPI::callGET("annees");
+        $year = RestAPI::callGET("annees/1", "App\Entity\Annee");
 
-        /*
-        $task = new Task();
-        $task->setTask('Write a blog post');
-        $task->setDueDate(new \DateTime('tomorrow'));
-        */
-        /*
-        $form = $this->createFormBuilder($task)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class, ['label' => 'Create Task'])
-            ->getForm();
-        */
+        $yearForm = $this->createForm(YearType::class, $year);
 
         return $this->render('years.html.twig', [
-            'years' => $years
+            'years' => $years,
+            'yearForm' => $yearForm->createView()
         ]);
-    }
-
-    private function createSchoolYearOptions()
-    {
-        $schoolYears = callGET("annees");
-
-        foreach ($schoolYears as $schoolYear)
-        {
-            echo '<option value="' . $schoolYear->idAnnee . '">' . $schoolYear->value . '</option>';
-        }
-    }
-
-    private function callGET($url)
-    {
-        $client = curl_init("localhost:8080/" . $url);
-
-        curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($client);
-
-        return json_decode($response);
     }
 }
