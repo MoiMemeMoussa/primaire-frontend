@@ -10,6 +10,13 @@
 
 {% block body %}
     {{ parent() }}
+{% endblock %}
+
+{% block content_title %}
+    Etudiants
+{% endblock %}
+
+{% block content %}
     <main>
         <h3>Liste des &eacute;tudiants :</h3>
         <ul>
@@ -62,5 +69,4 @@
             </fieldset>
         </form>
     </main>
-</body>
 {% endblock %}
