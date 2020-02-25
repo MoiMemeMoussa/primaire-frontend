@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\StudentType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,31 +15,14 @@ class StudentsController extends AbstractController
      */
     public function renderHomepage()
     {
-        $students = $this->callGET("eleves");
+        $students = RestAPI::callGET("eleves");
+        $student = RestAPI::callGET("eleves/1", "App\Entity\Eleve");
+
+        $studentForm = $this->createForm(StudentType::class, $student);
 
         return $this->render('students.html.twig', [
-            'students' => $students
+            'students' => $students,
+            'studentForm' => $studentForm->createView()
         ]);
-    }
-
-    private function createSchoolYearOptions()
-    {
-        $schoolYears = callGET("annees");
-
-        foreach ($schoolYears as $schoolYear)
-        {
-            echo '<option value="' . $schoolYear->idAnnee . '">' . $schoolYear->value . '</option>';
-        }
-    }
-
-    private function callGET($url)
-    {
-        $client = curl_init("localhost:8080/" . $url);
-
-        curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($client);
-
-        return json_decode($response);
     }
 }

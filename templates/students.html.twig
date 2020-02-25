@@ -19,39 +19,11 @@
                 <li>{{ student.firstName }} {{ student.lastName }}</li>
             {% endfor %}
         </ul>
+        <h3>Cr&eacute;er un &eacute;l&egrave;ve</h3>
+        {{ form(studentForm) }}
         <form>
             <fieldset>
-                <legend>Cr&eacute;er un &eacute;l&egrave;ve</legend>
-                <div class="form-group row">
-                    <label for="firstname" class="col col-form-label">Pr&eacute;nom :</label>
-                    <div class="col">
-                        <input id="firstname" class="form-control" type="text"/>
-                    </div>
-                    <label for="lastname" class="col col-form-label">Nom :</label>
-                    <div class="col">
-                        <input id="lastname" class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="birthdate" class="col col-form-label">Date de naissance :</label>
-                    <div class="col">
-                        <input id="birthdate" class="form-control" type="date"/>
-                    </div>
-                    <label for="birthplace" class="col col-form-label">Lieu de naissance :</label>
-                    <div class="col">
-                        <input id="birthplace" class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="father_name" class="col col-form-label">Nom du p&egrave;re :</label>
-                    <div class="col">
-                        <input id="father_name" class="form-control" type="text"/>
-                    </div>
-                    <label for="mother_name" class="col col-form-label">Nom de la m&egrave;re :</label>
-                    <div class="col">
-                        <input id="mother_name" class="form-control" type="text"/>
-                    </div>
-                </div>
+                <legend>Ancien formulaire :</legend>
                 <div class="form-group row">
                     <label for="parents_phone" class="col col-form-label">T&eacute;l&eacute;phone parents :</label>
                     <div class="col">
