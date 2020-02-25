@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Form\CourseType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CoursesController extends AbstractController
