@@ -11,6 +11,18 @@
         {% block body %}
             {% include('menu.html.twig') %}
         {% endblock %}
+        <div id="wrapper">
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="container-fluid">
+                            <h1 class="h3 mb-4 text-gray-800">{% block content_title %}{% endblock %}</h1>
+                        </div>
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
