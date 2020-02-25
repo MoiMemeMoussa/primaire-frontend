@@ -12,12 +12,14 @@ class HomeController extends AbstractController
      */
     public function renderHomepage()
     {
-        $schoolYears = RestAPI::callGET("annees");
-        $schoolClasses = array("1");
+        $years = RestAPI::callGET("annees");
+        $classes = RestAPI::callGET("annees/1/classes");
+        $teacher = RestAPI::callGET("classes/1/annees/1/enseignant");
 
         return $this->render('index.html.twig', [
-            'schoolYears' => $schoolYears,
-            'schoolClasses' => $schoolClasses
+            'years' => $years,
+            'classes' => $classes,
+            'teacher' => $teacher
         ]);
     }
 }

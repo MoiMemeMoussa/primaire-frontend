@@ -22,46 +22,25 @@
             <label for="school_year_field" class="col col-form-label">Choisir une ann&eacute;e scolaire :</label>
             <div class="col">
                 <select id="school_year_field" class="form-control">
-                    {% for schoolYear in schoolYears %}
-                        <option value="{{ schoolYear.idAnnee }}">{{ schoolYear.value }}</option>
+                    {% for year in years %}
+                        <option value="{{ year.idAnnee }}">{{ year.value }}</option>
                     {% endfor %}
                 </select>
             </div>
         </div>
         <div id="school_classes">
-            {% for index, schoolClass in schoolClasses %}
-                {{ schoolClass }}
+            {% for index, class in classes %}
+                <div class="form-group row">
+                    <label for="class" class="col col-form-label">Classe {{ index + 1 }}</label>
+                    <div class="col">
+                        <input id="class" class="form-control" type="text" value="{{ class.name }}"/>
+                    </div>
+                    <label for="teacher" class="col col-form-label">Enseignant {{ index + 1 }}</label>
+                    <div class="col">
+                        <input id="teacher" class="form-control" type="text" value="{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}"/>
+                    </div>
+                </div>
             {% endfor %}
-            <div class="form-group row">
-                <label for="class" class="col col-form-label">Classe :</label>
-                <div class="col">
-                    <input id="class" class="form-control" type="text"/>
-                </div>
-                <label for="teacher" class="col col-form-label">Enseignant :</label>
-                <div class="col">
-                    <input id="teacher" class="form-control" type="text"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="class_2" class="col col-form-label">Classe 2 :</label>
-                <div class="col">
-                    <input id="class_2" class="form-control" type="text"/>
-                </div>
-                <label for="teacher_2" class="col col-form-label">Enseignant 2 :</label>
-                <div class="col">
-                    <input id="teacher_2" class="form-control" type="text"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="class_n" class="col col-form-label">Classe N :</label>
-                <div class="col">
-                    <input id="class_n" class="form-control" type="text"/>
-                </div>
-                <label for="teacher_n" class="col col-form-label">Enseignant N :</label>
-                <div class="col">
-                    <input id="teacher_n" class="form-control" type="text"/>
-                </div>
-            </div>
         </div>
     </form>
 {% endblock %}
