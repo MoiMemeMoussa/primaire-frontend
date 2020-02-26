@@ -17,7 +17,8 @@ class ClassesController extends AbstractController
     public function renderClasses(Request $request)
     {
         $classes = Unirest\Request::get("http://localhost:8080/classes")->body;
-        $class = $this->createClass();
+
+        $class = new Classe();
 
         $classForm = $this->createForm(ClassType::class, $class);
 
@@ -26,6 +27,10 @@ class ClassesController extends AbstractController
         if ($classForm->isSubmitted() && $classForm->isValid())
         {
             $class = $classForm->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($class);
+            $entityManager->flush();
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }

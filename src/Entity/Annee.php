@@ -16,6 +16,7 @@ class Annee
      * @var int
      *
      * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(name="idAnnee", type="integer", nullable=false)
      */
     private $idannee;

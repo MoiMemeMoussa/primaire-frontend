@@ -18,7 +18,7 @@ class YearsController extends AbstractController
     {
         $years = Unirest\Request::get("http://localhost:8080/annees")->body;
 
-        $year = $this->createYear();
+        $year = new Annee();
 
         $yearForm = $this->createForm(YearType::class, $year);
 
@@ -30,9 +30,9 @@ class YearsController extends AbstractController
             $annee = $yearForm->getData();
 
             // ... perform some action, such as saving the task to the database, for example, if Year is a Doctrine entity, save it!
-            // $entityManager = $this->getDoctrine()->getManager();
-            // $entityManager->persist($year);
-            // $entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($year);
+            $entityManager->flush();
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }

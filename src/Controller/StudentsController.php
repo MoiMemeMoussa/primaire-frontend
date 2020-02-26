@@ -17,6 +17,7 @@ class StudentsController extends AbstractController
     public function renderStudents(Request $request)
     {
         $students = Unirest\Request::get("http://localhost:8080/eleves")->body;
+
         $student = $this->createStudent();
 
         $studentForm = $this->createForm(StudentType::class, $student);
@@ -26,6 +27,10 @@ class StudentsController extends AbstractController
         if ($studentForm->isSubmitted() && $studentForm->isValid())
         {
             $student = $studentForm->getData();
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($student);
+            $entityManager->flush();
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
