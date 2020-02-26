@@ -3,12 +3,12 @@
 {% block title %}Années scolaires{% endblock %}
 
 {% block content %}
-    <h3>Liste des années scolaires :</h3>
+    <h2>Liste des années scolaires :</h2>
     <ul>
         {% for year in years %}
             <li>{{ year.value }}</li>
         {% endfor %}
     </ul>
-    <h3>Nouvelle année scolaire :</h3>
+    <h2>Nouvelle année scolaire :</h2>
     {{ form(yearForm) }}
 {% endblock %}

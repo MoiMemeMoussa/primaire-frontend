@@ -4,13 +4,13 @@
 
 {% block content %}
     <main>
-        <h3>Liste des étudiants :</h3>
+        <h2>Liste des étudiants :</h2>
         <ul>
             {% for student in students %}
                 <li>{{ student.firstName }} {{ student.lastName }}</li>
             {% endfor %}
         </ul>
-        <h3>Nouvel élève</h3>
+        <h2>Nouvel élève</h2>
         {{ form(studentForm) }}
         <form>
             <fieldset>

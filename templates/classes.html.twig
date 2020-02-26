@@ -4,13 +4,13 @@
 
 {% block content %}
     <main>
-        <h3>Liste des classes :</h3>
+        <h2>Liste des classes :</h2>
         <ul>
             {% for class in classes %}
                 <li>{{ class.name }}</li>
             {% endfor %}
         </ul>
-        <h3>Nouvelle classe :</h3>
+        <h2>Nouvelle classe :</h2>
         {{ form(classForm) }}
     </main>
 {% endblock %}

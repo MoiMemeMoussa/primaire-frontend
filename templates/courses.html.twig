@@ -4,13 +4,13 @@
 
 {% block content %}
     <main>
-        <h3>Liste des matières :</h3>
+        <h2>Liste des matières :</h2>
         <ul>
             {% for course in courses %}
                 <li>{{ course.name }}</li>
             {% endfor %}
         </ul>
-        <h3>Nouvelle matière :</h3>
+        <h2>Nouvelle matière :</h2>
         {{ form(courseForm) }}
         <form>
             <div class="form-group row">
