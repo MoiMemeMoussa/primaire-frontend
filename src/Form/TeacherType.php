@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Enseignant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,6 +20,7 @@ class TeacherType extends AbstractType
             ->add('matricule')
             ->add('phone', NumberType::class, ['label' => "Téléphone"])
             ->add('title', TextType::class, ['label' => "Genre"])
+            ->add('Valider', SubmitType::class)
         ;
     }
 
