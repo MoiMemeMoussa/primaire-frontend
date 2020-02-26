@@ -7,6 +7,9 @@ use App\Form\YearType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use Unirest;
 
 class YearsController extends AbstractController
@@ -26,19 +29,14 @@ class YearsController extends AbstractController
 
         if ($yearForm->isSubmitted() && $yearForm->isValid())
         {
-            // $yearForm->getData() holds the submitted values but the original `$year` variable has also been updated
-            $year = $yearForm->getData();
+            $encoders = [new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
 
-            //$body = Unirest\Request\Body::json($year);
+            $serializer = new Serializer($normalizers, $encoders);
 
-            //dump($year);
+            $jsonYear = $serializer->serialize($year, 'json');
 
-            //Unirest\Request::post("http://localhost:8080/annees", [], $body);
-
-            // ... perform some action, such as saving the task to the database, for example, if Year is a Doctrine entity, save it!
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($year);
-            $entityManager->flush();
+            Unirest\Request::post("http://localhost:8080/annees", ["Content-Type" => "application/json"], $jsonYear);
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
