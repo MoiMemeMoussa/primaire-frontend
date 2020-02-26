@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -10,7 +11,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name = "home")
      */
-    public function renderHomepage()
+    public function renderHomepage(Request $request)
     {
         $years = RestAPI::callGET("annees");
         $classes = RestAPI::callGET("annees/1/classes");
