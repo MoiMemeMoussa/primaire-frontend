@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Annee;
 use App\Form\YearType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Unirest;
 
 class YearsController extends AbstractController
 {
@@ -14,8 +16,9 @@ class YearsController extends AbstractController
      */
     public function renderYears(Request $request)
     {
-        $years = RestAPI::callGET("annees");
-        $year = RestAPI::callGET("annees/1", "App\Entity\Annee");
+        $years = Unirest\Request::get("http://localhost:8080/annees")->body;
+
+        $year = $this->createYear();
 
         $yearForm = $this->createForm(YearType::class, $year);
 
@@ -38,5 +41,16 @@ class YearsController extends AbstractController
             'years' => $years,
             'yearForm' => $yearForm->createView()
         ]);
+    }
+
+    private function createYear()
+    {
+        $response = Unirest\Request::get("http://localhost:8080/annees/1")->body;
+
+        $year = new Annee();
+        $year->setIdAnnee($response->idAnnee);
+        $year->setValue($response->value);
+
+        return $year;
     }
 }
