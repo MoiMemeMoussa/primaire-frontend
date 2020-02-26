@@ -29,6 +29,12 @@ class YearsController extends AbstractController
             // $yearForm->getData() holds the submitted values but the original `$year` variable has also been updated
             $year = $yearForm->getData();
 
+            //$body = Unirest\Request\Body::json($year);
+
+            //dump($year);
+
+            //Unirest\Request::post("http://localhost:8080/annees", [], $body);
+
             // ... perform some action, such as saving the task to the database, for example, if Year is a Doctrine entity, save it!
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($year);
