@@ -11,7 +11,7 @@ class YearsController extends AbstractController
     /**
      * @Route("/years", name = "years")
      */
-    public function renderHomepage()
+    public function renderYears()
     {
         $years = RestAPI::callGET("annees");
         $year = RestAPI::callGET("annees/1", "App\Entity\Annee");

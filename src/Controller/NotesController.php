@@ -10,7 +10,7 @@ class NotesController extends AbstractController
     /**
      * @Route("/notes", name = "notes")
      */
-    public function renderHomepage()
+    public function renderNotes()
     {
         return $this->render('notes.html.twig', []);
     }

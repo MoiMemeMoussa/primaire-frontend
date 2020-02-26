@@ -11,7 +11,7 @@ class StudentsController extends AbstractController
     /**
      * @Route("/students", name = "students")
      */
-    public function renderHomepage()
+    public function renderStudents()
     {
         $students = RestAPI::callGET("eleves");
         $student = RestAPI::callGET("eleves/1", "App\Entity\Eleve");

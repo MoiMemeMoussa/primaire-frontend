@@ -10,7 +10,7 @@ class ReportsController extends AbstractController
     /**
      * @Route("/reports", name = "reports")
      */
-    public function renderHomepage()
+    public function renderReports()
     {
         return $this->render('reports.html.twig', []);
     }
