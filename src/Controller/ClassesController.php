@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Classe;
 use App\Form\ClassType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Unirest;
 
 class ClassesController extends AbstractController
 {
@@ -14,8 +16,8 @@ class ClassesController extends AbstractController
      */
     public function renderClasses(Request $request)
     {
-        $classes = RestAPI::callGET("classes");
-        $class = RestAPI::callGET("classes/1", "App\Entity\Classe");
+        $classes = Unirest\Request::get("http://localhost:8080/classes")->body;
+        $class = $this->createClass();
 
         $classForm = $this->createForm(ClassType::class, $class);
 
@@ -32,5 +34,16 @@ class ClassesController extends AbstractController
             'classes' => $classes,
             'classForm' => $classForm->createView()
         ]);
+    }
+
+    private function createClass()
+    {
+        $response = Unirest\Request::get("http://localhost:8080/classes/1")->body;
+
+        $class = new Classe();
+        $class->setIdClasse($response->idClasse);
+        $class->setName($response->name);
+
+        return $class;
     }
 }

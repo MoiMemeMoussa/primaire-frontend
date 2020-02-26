@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Enseignant;
 use App\Form\TeacherType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Unirest;
 
 class TeachersController extends AbstractController
 {
@@ -14,8 +16,8 @@ class TeachersController extends AbstractController
      */
     public function renderTeachers(Request $request)
     {
-        $teachers = RestAPI::callGET("enseignants");
-        $teacher = RestAPI::callGET("enseignants/2001-A001", "App\Entity\Enseignant");
+        $teachers = Unirest\Request::get("http://localhost:8080/enseignants")->body;
+        $teacher = $this->createTeacher();
 
         $teacherForm = $this->createForm(TeacherType::class, $teacher);
 
@@ -32,5 +34,19 @@ class TeachersController extends AbstractController
             'teachers' => $teachers,
             'teacherForm' => $teacherForm->createView()
         ]);
+    }
+
+    private function createTeacher()
+    {
+        $response = Unirest\Request::get("http://localhost:8080/enseignants/2001-A001")->body;
+
+        $teacher = new Enseignant();
+        $teacher->setMatricule($response->matricule);
+        $teacher->setFirstName($response->firstName);
+        $teacher->setLastName($response->lastName);
+        $teacher->setTitle($response->title);
+        $teacher->setPhone($response->phone);
+
+        return $teacher;
     }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Matiere;
 use App\Form\CourseType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Unirest;
 
 class CoursesController extends AbstractController
 {
@@ -14,8 +16,8 @@ class CoursesController extends AbstractController
      */
     public function renderCourses(Request $request)
     {
-        $courses = RestAPI::callGET("matieres");
-        $course = RestAPI::callGET("matieres/4", "App\Entity\Matiere");
+        $courses = Unirest\Request::get("http://localhost:8080/matieres")->body;
+        $course = $this->createCourse();
 
         $courseForm = $this->createForm(CourseType::class, $course);
 
@@ -32,5 +34,16 @@ class CoursesController extends AbstractController
             'courses' => $courses,
             'courseForm' => $courseForm->createView()
         ]);
+    }
+
+    private function createCourse()
+    {
+        $response = Unirest\Request::get("http://localhost:8080/matieres/4")->body;
+
+        $course = new Matiere();
+        $course->setIdMatiere($response->idMatiere);
+        $course->setName($response->name);
+
+        return $course;
     }
 }
