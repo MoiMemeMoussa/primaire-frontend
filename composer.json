@@ -5,6 +5,7 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "mashape/unirest-php": "^3.0.5",
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/console": "5.0.*",
         "symfony/dotenv": "5.0.*",
@@ -60,6 +61,12 @@
     "conflict": {
         "symfony/symfony": "*"
     },
+     "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/loverg-c/unirest-php"
+        }
+    ],
     "extra": {
         "symfony": {
             "allow-contrib": false,
