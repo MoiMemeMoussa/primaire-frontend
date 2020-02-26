@@ -25,7 +25,7 @@ class ClassesController extends AbstractController
         {
             $class = $classForm->getData();
 
-            return $this->redirectToRoute('courses');
+            return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
 
         return $this->render('classes.html.twig', [

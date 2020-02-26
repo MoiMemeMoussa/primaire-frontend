@@ -25,7 +25,7 @@ class StudentsController extends AbstractController
         {
             $student = $studentForm->getData();
 
-            return $this->redirectToRoute('students');
+            return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
 
         return $this->render('students.html.twig', [

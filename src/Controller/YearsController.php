@@ -31,7 +31,7 @@ class YearsController extends AbstractController
             // $entityManager->persist($year);
             // $entityManager->flush();
 
-            return $this->redirectToRoute('classes');
+            return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
 
         return $this->render('years.html.twig', [
