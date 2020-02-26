@@ -16,7 +16,6 @@ class Classe
      * @var int
      *
      * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(name="idClasse", type="integer", nullable=false)
      */
     private $idclasse;
