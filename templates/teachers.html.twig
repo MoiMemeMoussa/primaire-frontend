@@ -20,6 +20,7 @@
                 <li>{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}</li>
             {% endfor %}
         </ul>
+        <h3>Nouvel enseignant :</h3>
         {{ form(teacherForm) }}
         <a href="{{ path('students') }}">Cr&eacute;er un enseignant</a>
     </main>
