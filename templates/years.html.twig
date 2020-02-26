@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Nouvelle ann&eacute;e scolaire
+    Nouvelle année scolaire
 {% endblock %}
 
 {% block stylesheets %}
@@ -9,19 +9,19 @@
 {% endblock %}
 
 {% block content_title %}
-    Ann&eacute;es scolaires
+    Années scolaires
 {% endblock %}
 
 {% block content %}
     <main>
-        <h3>Liste des ann&eacute;es scolaires :</h3>
+        <h3>Liste des années scolaires :</h3>
         <ul>
             {% for year in years %}
                 <li>{{ year.value }}</li>
             {% endfor %}
         </ul>
-        <h3>Nouvelle ann&eacute;e scolaire :</h3>
+        <h3>Nouvelle année scolaire :</h3>
         {{ form(yearForm) }}
-        <a href="{{ path('classes') }}">Cr&eacute;er une classe</a>
+        <a href="{{ path('classes') }}">Créer une classe</a>
     </main>
 {% endblock %}

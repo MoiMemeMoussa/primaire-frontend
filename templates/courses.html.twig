@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Cr&eacute;er mati&egrave;re
+    Créer matière
 {% endblock %}
 
 {% block stylesheets %}
@@ -9,18 +9,18 @@
 {% endblock %}
 
 {% block content_title %}
-    Mati&egrave;res
+    Matières
 {% endblock %}
 
 {% block content %}
     <main>
-        <h3>Liste des mati&egrave;res :</h3>
+        <h3>Liste des matières :</h3>
         <ul>
             {% for course in courses %}
                 <li>{{ course.name }}</li>
             {% endfor %}
         </ul>
-        <h3>Nouvelle mati&egrave;re :</h3>
+        <h3>Nouvelle matière :</h3>
         {{ form(courseForm) }}
         <form>
             <div class="form-group row">
@@ -30,6 +30,6 @@
                 </div>
             </div>
         </form>
-        <a href="{{ path('teachers') }}">Cr&eacute;er un enseignant</a>
+        <a href="{{ path('teachers') }}">Créer un enseignant</a>
     </main>
 {% endblock %}

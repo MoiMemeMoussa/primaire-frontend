@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    Cr&eacute;er &eacute;tudiant
+    Créer étudiant
 {% endblock %}
 
 {% block stylesheets %}
@@ -14,19 +14,19 @@
 
 {% block content %}
     <main>
-        <h3>Liste des &eacute;tudiants :</h3>
+        <h3>Liste des étudiants :</h3>
         <ul>
             {% for student in students %}
                 <li>{{ student.firstName }} {{ student.lastName }}</li>
             {% endfor %}
         </ul>
-        <h3>Nouvel &eacute;l&egrave;ve</h3>
+        <h3>Nouvel élève</h3>
         {{ form(studentForm) }}
         <form>
             <fieldset>
                 <legend>Ancien formulaire :</legend>
                 <div class="form-group row">
-                    <label for="parents_phone" class="col col-form-label">T&eacute;l&eacute;phone parents :</label>
+                    <label for="parents_phone" class="col col-form-label">Téléphone parents :</label>
                     <div class="col">
                         <input id="parents_phone" class="form-control" type="text"/>
                     </div>
