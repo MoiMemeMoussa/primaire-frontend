@@ -7,6 +7,9 @@ use App\Form\ClassType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use Unirest;
 
 class ClassesController extends AbstractController
@@ -26,11 +29,14 @@ class ClassesController extends AbstractController
 
         if ($classForm->isSubmitted() && $classForm->isValid())
         {
-            $class = $classForm->getData();
+            $encoders = [new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($class);
-            $entityManager->flush();
+            $serializer = new Serializer($normalizers, $encoders);
+
+            $jsonClass = $serializer->serialize($class, 'json');
+
+            Unirest\Request::post("http://localhost:8080/classes", ["Content-Type" => "application/json"], $jsonClass);
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
