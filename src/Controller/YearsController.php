@@ -27,7 +27,7 @@ class YearsController extends AbstractController
         if ($yearForm->isSubmitted() && $yearForm->isValid())
         {
             // $yearForm->getData() holds the submitted values but the original `$year` variable has also been updated
-            $annee = $yearForm->getData();
+            $year = $yearForm->getData();
 
             // ... perform some action, such as saving the task to the database, for example, if Year is a Doctrine entity, save it!
             $entityManager = $this->getDoctrine()->getManager();
