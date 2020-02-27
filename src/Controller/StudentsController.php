@@ -7,6 +7,9 @@ use App\Form\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 use Unirest;
 
 class StudentsController extends AbstractController
@@ -18,7 +21,7 @@ class StudentsController extends AbstractController
     {
         $students = Unirest\Request::get("http://localhost:8080/eleves")->body;
 
-        $student = $this->createStudent();
+        $student = new Eleve();
 
         $studentForm = $this->createForm(StudentType::class, $student);
 
@@ -26,11 +29,18 @@ class StudentsController extends AbstractController
 
         if ($studentForm->isSubmitted() && $studentForm->isValid())
         {
-            $student = $studentForm->getData();
+            //dump($student->getBirthDate());
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($student);
-            $entityManager->flush();
+            $encoders = [new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
+
+            $serializer = new Serializer($normalizers, $encoders);
+
+            $jsonStudent = $serializer->serialize($student, 'json');
+
+            //dump($jsonStudent);
+
+            Unirest\Request::post("http://localhost:8080/eleves", ["Content-Type" => "application/json"], $jsonStudent);
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
