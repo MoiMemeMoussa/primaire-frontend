@@ -15,9 +15,9 @@ class StudentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', TextType::class, ['label' => "Prénom"])
-            ->add('lastname', TextType::class, ['label' => "Nom"])
-            ->add('birthdate', BirthdayType::class, ['label' => "Date de naissance"])
+            ->add('firstName', TextType::class, ['label' => "Prénom"])
+            ->add('lastName', TextType::class, ['label' => "Nom"])
+            ->add('birthDate', BirthdayType::class, ['label' => "Date de naissance"])
             ->add('place', TextType::class, ['label' => "Lieu de naissance"])
             ->add('father', TextType::class, ['label' => "Père"])
             ->add('mother', TextType::class, ['label' => "Mère"])

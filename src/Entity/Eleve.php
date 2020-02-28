@@ -18,14 +18,14 @@ class Eleve
      * @ORM\Id
      * @ORM\Column(name="idEleve", type="integer", nullable=false)
      */
-    private $ideleve;
+    private $idEleve;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="birthDate", type="date", nullable=false)
      */
-    private $birthdate;
+    private $birthDate;
 
     /**
      * @var string
@@ -39,7 +39,7 @@ class Eleve
      *
      * @ORM\Column(name="firstName", type="string", length=255, nullable=false)
      */
-    private $firstname;
+    private $firstName;
 
     /**
      * @var string
@@ -53,7 +53,7 @@ class Eleve
      *
      * @ORM\Column(name="lastName", type="string", length=255, nullable=false)
      */
-    private $lastname;
+    private $lastName;
 
     /**
      * @var string
@@ -69,26 +69,26 @@ class Eleve
      */
     private $place;
 
-    public function getIdeleve(): ?int
+    public function getIdEleve(): ?int
     {
-        return $this->ideleve;
+        return $this->idEleve;
     }
 
-    public function setIdeleve(int $ideleve): self
+    public function setIdEleve(int $idEleve): self
     {
-        $this->ideleve = $ideleve;
+        $this->idEleve = $idEleve;
 
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeInterface
+    public function getBirthDate(): ?\DateTimeInterface
     {
-        return $this->birthdate;
+        return $this->birthDate;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): self
+    public function setBirthDate(\DateTimeInterface $birthDate): self
     {
-        $this->birthdate = $birthdate;
+        $this->birthDate = $birthDate;
 
         return $this;
     }
@@ -105,14 +105,14 @@ class Eleve
         return $this;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setFirstName(string $firstName): self
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -129,14 +129,14 @@ class Eleve
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getLastName(): ?string
     {
-        return $this->lastname;
+        return $this->lastName;
     }
 
-    public function setLastname(string $lastname): self
+    public function setLastName(string $lastName): self
     {
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
 
         return $this;
     }
