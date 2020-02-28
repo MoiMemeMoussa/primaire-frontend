@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Eleve;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,7 +26,15 @@ class StudentType extends AbstractType
             ->add('place', TextType::class, ['label' => "Lieu de naissance"])
             ->add('father', TextType::class, ['label' => "Père"])
             ->add('mother', TextType::class, ['label' => "Mère"])
-            ->add('gender')
+            ->add('gender', ChoiceType::class, [
+                'label' => "Genre",
+                'expanded' => true,
+                'multiple' => false,
+                'choices'  => [
+                    'M' => "MASCULIN",
+                    'F' => "FEMININ",
+                ]
+            ])
             ->add('Valider', SubmitType::class)
         ;
     }
