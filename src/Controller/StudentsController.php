@@ -29,16 +29,12 @@ class StudentsController extends AbstractController
 
         if ($studentForm->isSubmitted() && $studentForm->isValid())
         {
-            //dump($student->getBirthDate());
-
             $encoders = [new JsonEncoder()];
             $normalizers = [new ObjectNormalizer()];
 
             $serializer = new Serializer($normalizers, $encoders);
 
             $jsonStudent = $serializer->serialize($student, 'json');
-
-            //dump($jsonStudent);
 
             Unirest\Request::post("http://localhost:8080/eleves", ["Content-Type" => "application/json"], $jsonStudent);
 

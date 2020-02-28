@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Eleve;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +17,11 @@ class StudentType extends AbstractType
         $builder
             ->add('firstName', TextType::class, ['label' => "Prénom"])
             ->add('lastName', TextType::class, ['label' => "Nom"])
-            ->add('birthDate', BirthdayType::class, ['label' => "Date de naissance"])
+            ->add('birthDate', DateType::class, [
+                'label' => "Date de naissance",
+                'input' => 'string',
+                'years' => range(date('Y') - 100, date('Y') - 10)
+            ])
             ->add('place', TextType::class, ['label' => "Lieu de naissance"])
             ->add('father', TextType::class, ['label' => "Père"])
             ->add('mother', TextType::class, ['label' => "Mère"])

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Eleve
@@ -21,7 +22,9 @@ class Eleve
     private $idEleve;
 
     /**
-     * @var \DateTime
+     * @Assert\Date
+     * @Assert\NotBlank
+     * @var string
      *
      * @ORM\Column(name="birthDate", type="date", nullable=false)
      */
@@ -81,12 +84,12 @@ class Eleve
         return $this;
     }
 
-    public function getBirthDate(): ?\DateTimeInterface
+    public function getBirthDate(): ?string
     {
         return $this->birthDate;
     }
 
-    public function setBirthDate(\DateTimeInterface $birthDate): self
+    public function setBirthDate(string $birthDate): self
     {
         $this->birthDate = $birthDate;
 
