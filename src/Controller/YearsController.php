@@ -19,13 +19,7 @@ class YearsController extends AbstractController
      */
     public function renderYears(Request $request)
     {
-        $years = Unirest\Request::get("http://localhost:8080/annees")->body;
-
-        $newYear = new Annee();
-
-        $newYear->setValue("Nouvelle année");
-
-        array_unshift($years, $newYear);
+        $years = $this->computeYears();
 
         $year = new Annee();
 
@@ -51,6 +45,19 @@ class YearsController extends AbstractController
             'years' => $years,
             'yearForm' => $yearForm->createView()
         ]);
+    }
+
+    private function computeYears()
+    {
+        $years = Unirest\Request::get("http://localhost:8080/annees")->body;
+
+        $newYear = new Annee();
+
+        $newYear->setValue("Nouvelle année");
+
+        array_unshift($years, $newYear);
+
+        return $years;
     }
 
     private function createYear()
