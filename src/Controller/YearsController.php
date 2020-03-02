@@ -21,6 +21,12 @@ class YearsController extends AbstractController
     {
         $years = Unirest\Request::get("http://localhost:8080/annees")->body;
 
+        $newYear = new Annee();
+
+        $newYear->setValue("Nouvelle année");
+
+        array_unshift($years, $newYear);
+
         $year = new Annee();
 
         $yearForm = $this->createForm(YearType::class, $year);
