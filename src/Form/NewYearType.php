@@ -6,6 +6,7 @@ use App\Entity\Annee;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\View\ChoiceView;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,6 +24,11 @@ class NewYearType extends AbstractType
                 'choice_label' => 'value',
                 'mapped' => false
             ])
+            ->add('classes', CollectionType::class, [
+                'entry_type' => ClasseType::class,
+                'entry_options' => ['label' => false],
+                'mapped' => false
+            ])
             ->add('Valider', SubmitType::class)
         ;
     }
@@ -30,7 +36,8 @@ class NewYearType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'empty_data' => '',
+            'data_class' => Annee::class,
+            //'empty_data' => '',
         ]);
     }
 
