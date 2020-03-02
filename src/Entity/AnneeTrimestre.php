@@ -16,7 +16,7 @@ class AnneeTrimestre
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idAnnee", type="integer", nullable=false)
+     * @ORM\Column(name="id_annee", type="integer", nullable=false)
      */
     private $idannee;
 
@@ -24,21 +24,21 @@ class AnneeTrimestre
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idTrimestre", type="integer", nullable=false)
+     * @ORM\Column(name="id_trimestre", type="integer", nullable=false)
      */
     private $idtrimestre;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="endDate", type="date", nullable=true)
+     * @ORM\Column(name="end_date", type="date", nullable=true)
      */
     private $enddate;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="startDate", type="date", nullable=true)
+     * @ORM\Column(name="start_date", type="date", nullable=true)
      */
     private $startdate;
 

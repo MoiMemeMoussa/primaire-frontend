@@ -16,7 +16,7 @@ class Matricule
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idMatricule", type="integer", nullable=false)
+     * @ORM\Column(name="id_matricule", type="integer", nullable=false)
      */
     private $idmatricule;
 

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ClasseMatiere
  *
- * @ORM\Table(name="classe_matiere", indexes={@ORM\Index(name="FK2g14280y7mdao7gubk7ega9do", columns={"idMatiere"})})
+ * @ORM\Table(name="classe_matiere", indexes={@ORM\Index(name="FK2g14280y7mdao7gubk7ega9do", columns={"id_matiere"})})
  * @ORM\Entity
  */
 class ClasseMatiere
@@ -16,7 +16,7 @@ class ClasseMatiere
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idClasse", type="integer", nullable=false)
+     * @ORM\Column(name="id_classe", type="integer", nullable=false)
      */
     private $idclasse;
 
@@ -24,7 +24,7 @@ class ClasseMatiere
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idMatiere", type="integer", nullable=false)
+     * @ORM\Column(name="id_matiere", type="integer", nullable=false)
      */
     private $idmatiere;
 
@@ -32,7 +32,7 @@ class ClasseMatiere
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idAnnee", type="integer", nullable=false)
+     * @ORM\Column(name="id_annee", type="integer", nullable=false)
      */
     private $idannee;
 

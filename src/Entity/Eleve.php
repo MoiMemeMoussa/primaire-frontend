@@ -17,7 +17,7 @@ class Eleve
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="idEleve", type="integer", nullable=false)
+     * @ORM\Column(name="id_eleve", type="integer", nullable=false)
      */
     private $idEleve;
 
@@ -26,7 +26,7 @@ class Eleve
      * @Assert\NotBlank
      * @var string
      *
-     * @ORM\Column(name="birthDate", type="date", nullable=false)
+     * @ORM\Column(name="birth_date", type="date", nullable=false)
      */
     private $birthDate;
 
@@ -40,7 +40,7 @@ class Eleve
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string", length=255, nullable=false)
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=false)
      */
     private $firstName;
 
@@ -54,7 +54,7 @@ class Eleve
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string", length=255, nullable=false)
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=false)
      */
     private $lastName;
 
