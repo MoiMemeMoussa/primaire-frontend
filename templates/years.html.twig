@@ -3,19 +3,6 @@
 {% block title %}Années scolaires{% endblock %}
 
 {% block content %}
-    <h2>Liste des années scolaires :</h2>
-    <form>
-        <div class="form-group row">
-            <label for="school_year_field" class="col col-form-label">Année scolaire</label>
-            <div class="col">
-                <select id="school_year_field" class="form-control">
-                    {% for year in years %}
-                        <option value="{{ year.idAnnee }}">{{ year.value }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-        </div>
-    </form>
     <h2>Nouvelle année scolaire :</h2>
     {{ form(yearForm) }}
 {% endblock %}
