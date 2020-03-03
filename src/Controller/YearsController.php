@@ -5,13 +5,10 @@ namespace App\Controller;
 use App\Entity\Annee;
 use App\Entity\Classe;
 use App\Form\NewYearType;
+use App\Utils\RestAPI;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Unirest;
 
 class YearsController extends AbstractController
 {
@@ -25,9 +22,7 @@ class YearsController extends AbstractController
         $year = new Annee();
 
         $class = new Classe();
-
         $class->setName("test");
-
         $year->addClass($class);
 
         $yearForm = $this->createForm(NewYearType::class, $year);
@@ -36,14 +31,7 @@ class YearsController extends AbstractController
 
         if ($yearForm->isSubmitted() && $yearForm->isValid())
         {
-            $encoders = [new JsonEncoder()];
-            $normalizers = [new ObjectNormalizer()];
-
-            $serializer = new Serializer($normalizers, $encoders);
-
-            $jsonYear = $serializer->serialize($year, 'json');
-
-            Unirest\Request::post("http://localhost:8080/annees", ["Content-Type" => "application/json"], $jsonYear);
+            RestAPI::post("/annees", $year);
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
@@ -56,25 +44,13 @@ class YearsController extends AbstractController
 
     private function computeYears()
     {
-        $years = Unirest\Request::get("http://localhost:8080/annees")->body;
+        $years = RestAPI::getAll("/annees", "Annee");
 
         $newYear = new Annee();
-
         $newYear->setValue("Nouvelle année");
 
         array_unshift($years, $newYear);
 
         return $years;
-    }
-
-    private function createYear()
-    {
-        $response = Unirest\Request::get("http://localhost:8080/annees/1")->body;
-
-        $year = new Annee();
-        $year->setIdAnnee($response->idAnnee);
-        $year->setValue($response->value);
-
-        return $year;
     }
 }
