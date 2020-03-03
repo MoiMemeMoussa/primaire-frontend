@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Annee;
+use App\Entity\Classe;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\ChoiceList\View\ChoiceView;
@@ -24,9 +25,12 @@ class YearType extends AbstractType
                 'choice_label' => 'value',
                 'mapped' => false
             ])
-            ->add('classes', CollectionType::class, [
-                'entry_type' => ClassType::class,
-                'entry_options' => ['label' => false]
+            ->add('classes', EntityType::class, [
+                'class' => Classe::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+                'mapped' => false
             ])
             ->add('Valider', SubmitType::class)
         ;
@@ -35,15 +39,14 @@ class YearType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Annee::class,
-            //'empty_data' => '',
+            'data_class' => Annee::class
         ]);
     }
 
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
-        $newChoice = new ChoiceView(array(), 'add', 'Nouvelle année');
+        //$newChoice = new ChoiceView(array(), 'add', 'Nouvelle année');
 
-        array_unshift($view->children['Annee_scolaire']->vars['choices'], $newChoice);
+        //array_unshift($view->children['Annee_scolaire']->vars['choices'], $newChoice);
     }
 }
