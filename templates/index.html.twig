@@ -1,32 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle année scolaire{% endblock %}
+{% block title %}Accueil{% endblock %}
 
-{% block content %}
-    <form>
-        <div class="form-group row">
-            <label for="school_year_field" class="col col-form-label">Choisir une année scolaire :</label>
-            <div class="col">
-                <select id="school_year_field" class="form-control">
-                    {% for year in years %}
-                        <option value="{{ year.idAnnee }}">{{ year.value }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-        </div>
-        <div id="school_classes">
-            {% for class in classes %}
-                <div class="form-group row">
-                    <div class="custom-control custom-checkbox">
-                        <input id="{{ class.idClasse }}" class="custom-control-input" type="checkbox" name="{{ class.idClasse }}"/>
-                        <label for="{{ class.idClasse }}" class="custom-control-label">{{ class.name }}</label>
-                    </div>
-                    <label for="teacher" class="col col-form-label">Enseignant</label>
-                    <div class="col">
-                        <input id="teacher" class="form-control" type="text" value="{{ teacher.title }} {{ teacher.firstName }} {{ teacher.lastName }}"/>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </form>
-{% endblock %}
+{% block content %}Page vide{% endblock %}
