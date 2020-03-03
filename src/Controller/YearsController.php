@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Annee;
+use App\Entity\Classe;
 use App\Form\NewYearType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,6 +23,12 @@ class YearsController extends AbstractController
         $years = $this->computeYears();
 
         $year = new Annee();
+
+        $class = new Classe();
+
+        $class->setName("test");
+
+        $year->addClass($class);
 
         $yearForm = $this->createForm(NewYearType::class, $year);
 

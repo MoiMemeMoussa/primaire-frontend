@@ -25,9 +25,8 @@ class NewYearType extends AbstractType
                 'mapped' => false
             ])
             ->add('classes', CollectionType::class, [
-                'entry_type' => ClasseType::class,
-                'entry_options' => ['label' => false],
-                'mapped' => false
+                'entry_type' => ClassType::class,
+                'entry_options' => ['label' => false]
             ])
             ->add('Valider', SubmitType::class)
         ;

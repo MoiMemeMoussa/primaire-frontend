@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,13 @@ class Annee
      */
     private $value;
 
+    private $classes;
+
+    public function __construct()
+    {
+        $this->classes = new ArrayCollection();
+    }
+
     public function getIdannee(): ?int
     {
         return $this->idannee;
@@ -51,5 +59,13 @@ class Annee
         return $this;
     }
 
+    public function getClasses()
+    {
+        return $this->classes;
+    }
 
+    public function addClass(Classe $class)
+    {
+        $this->classes->add($class);
+    }
 }
