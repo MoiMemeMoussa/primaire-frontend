@@ -64,6 +64,13 @@ class Annee
         return $this->classes;
     }
 
+    public function setClasses(array $classes)
+    {
+        $this->classes = $classes;
+
+        return $this;
+    }
+
     public function addClass(Classe $class)
     {
         $this->classes->add($class);
