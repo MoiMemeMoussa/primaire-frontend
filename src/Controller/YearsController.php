@@ -43,10 +43,13 @@ class YearsController extends AbstractController
 
         foreach ($years as $year)
         {
-            $classes = RestAPI::getAll("/classes", "Classe");
+            //$classes = RestAPI::getAll("/classes", "Classe");
+            $classes = RestAPI::getAll("/annees/" . $year->getIdAnnee() . "/classes", "Classe");
 
             $year->setClasses($classes);
         }
+
+        dump($years);
 
         $newYear = new Annee();
         $newYear->setValue("Nouvelle année");
