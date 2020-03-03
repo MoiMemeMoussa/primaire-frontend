@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Annee;
-use App\Form\NewYearType;
+use App\Form\YearType;
 use App\Utils\RestAPI;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ class YearsController extends AbstractController
 
         $year = $years[1];
 
-        $yearForm = $this->createForm(NewYearType::class, $year);
+        $yearForm = $this->createForm(YearType::class, $year);
 
         $yearForm->handleRequest($request);
 

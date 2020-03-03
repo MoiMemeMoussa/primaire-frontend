@@ -3,10 +3,15 @@
 namespace App\Form;
 
 use App\Entity\Annee;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\View\ChoiceView;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class YearType extends AbstractType
@@ -14,7 +19,15 @@ class YearType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('value', TextType::class, ['label' => "Année"])
+            ->add('Annee_scolaire', EntityType::class, [
+                'class' => Annee::class,
+                'choice_label' => 'value',
+                'mapped' => false
+            ])
+            ->add('classes', CollectionType::class, [
+                'entry_type' => ClassType::class,
+                'entry_options' => ['label' => false]
+            ])
             ->add('Valider', SubmitType::class)
         ;
     }
@@ -23,6 +36,14 @@ class YearType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Annee::class,
+            //'empty_data' => '',
         ]);
+    }
+
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        $newChoice = new ChoiceView(array(), 'add', 'Nouvelle année');
+
+        array_unshift($view->children['Annee_scolaire']->vars['choices'], $newChoice);
     }
 }
