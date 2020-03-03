@@ -4,13 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Matiere;
 use App\Form\CourseType;
+use App\Utils\RestAPI;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Unirest;
 
 class CoursesController extends AbstractController
 {
@@ -19,7 +16,7 @@ class CoursesController extends AbstractController
      */
     public function renderCourses(Request $request)
     {
-        $courses = Unirest\Request::get("http://localhost:8080/matieres")->body;
+        $courses = RestAPI::getAll("/matieres", "Matiere");
 
         $course = new Matiere();
 
@@ -29,14 +26,7 @@ class CoursesController extends AbstractController
 
         if ($courseForm->isSubmitted() && $courseForm->isValid())
         {
-            $encoders = [new JsonEncoder()];
-            $normalizers = [new ObjectNormalizer()];
-
-            $serializer = new Serializer($normalizers, $encoders);
-
-            $jsonCourse = $serializer->serialize($course, 'json');
-
-            Unirest\Request::post("http://localhost:8080/matieres", ["Content-Type" => "application/json"], $jsonCourse);
+            RestAPI::post("/matieres", $course);
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
@@ -45,16 +35,5 @@ class CoursesController extends AbstractController
             'courses' => $courses,
             'courseForm' => $courseForm->createView()
         ]);
-    }
-
-    private function createCourse()
-    {
-        $response = Unirest\Request::get("http://localhost:8080/matieres/4")->body;
-
-        $course = new Matiere();
-        $course->setIdMatiere($response->idMatiere);
-        $course->setName($response->name);
-
-        return $course;
     }
 }

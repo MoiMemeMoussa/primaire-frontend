@@ -4,13 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Classe;
 use App\Form\ClassType;
+use App\Utils\RestAPI;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Unirest;
 
 class ClassesController extends AbstractController
 {
@@ -19,7 +16,7 @@ class ClassesController extends AbstractController
      */
     public function renderClasses(Request $request)
     {
-        $classes = Unirest\Request::get("http://localhost:8080/classes")->body;
+        $classes = RestAPI::getAll("/classes", "Classe");
 
         $class = new Classe();
 
@@ -29,14 +26,7 @@ class ClassesController extends AbstractController
 
         if ($classForm->isSubmitted() && $classForm->isValid())
         {
-            $encoders = [new JsonEncoder()];
-            $normalizers = [new ObjectNormalizer()];
-
-            $serializer = new Serializer($normalizers, $encoders);
-
-            $jsonClass = $serializer->serialize($class, 'json');
-
-            Unirest\Request::post("http://localhost:8080/classes", ["Content-Type" => "application/json"], $jsonClass);
+            RestAPI::post("/classes", $class);
 
             return $this->redirectToRoute(substr($request->getRequestUri(), 1));
         }
@@ -45,16 +35,5 @@ class ClassesController extends AbstractController
             'classes' => $classes,
             'classForm' => $classForm->createView()
         ]);
-    }
-
-    private function createClass()
-    {
-        $response = Unirest\Request::get("http://localhost:8080/classes/1")->body;
-
-        $class = new Classe();
-        $class->setIdClasse($response->idClasse);
-        $class->setName($response->name);
-
-        return $class;
     }
 }
