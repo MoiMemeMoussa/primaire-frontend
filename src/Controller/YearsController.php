@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Annee;
-use App\Entity\Classe;
 use App\Form\NewYearType;
 use App\Utils\RestAPI;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
