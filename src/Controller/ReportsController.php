@@ -29,7 +29,6 @@ class ReportsController extends AbstractController
         $this->post("classes", '{"idClasse":6,"name":"CE2"}');
         $this->post("classes", '{"idClasse":7,"name":"CM1"}');
         $this->post("classes", '{"idClasse":8,"name":"CM2"}');
-        $this->post("classes", '{"idClasse":9,"name":"6ème"}');
 
         $this->post("matieres", '{"idMatiere":10,"name":"Comptabilité"}');
         $this->post("matieres", '{"idMatiere":11,"name":"Philosophie"}');
@@ -43,8 +42,7 @@ class ReportsController extends AbstractController
         $this->post("classeannee", '{"idAnnee":1,"idClasse":5}');
         $this->post("classeannee", '{"idAnnee":1,"idClasse":6}');
         $this->post("classeannee", '{"idAnnee":2,"idClasse":7}');
-        $this->post("classeannee", '{"idAnnee":2,"idClasse":8}');
-        $this->post("classeannee", '{"idAnnee":3,"idClasse":9}');
+        $this->post("classeannee", '{"idAnnee":3,"idClasse":8}');
 
         dump("Données créées");
     }
