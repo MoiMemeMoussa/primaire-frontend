@@ -15,6 +15,7 @@ class ClassType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => "Classe"])
+            ->add('Valider', SubmitType::class)
         ;
     }
 
