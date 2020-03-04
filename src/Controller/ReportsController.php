@@ -38,11 +38,11 @@ class ReportsController extends AbstractController
 
         $this->post("eleves", '{"idEleve":13,"firstName":"Light","lastName":"YAGAMI","gender":"MASCULIN","father":"Ulquiora","mother":"Rukia","birthDate":"2000-05-16","place":"Tokyo"}');
 
-        $this->post("classeannee", '{"idAnnee":1,"idClasse":4}');
-        $this->post("classeannee", '{"idAnnee":1,"idClasse":5}');
-        $this->post("classeannee", '{"idAnnee":1,"idClasse":6}');
-        $this->post("classeannee", '{"idAnnee":2,"idClasse":7}');
-        $this->post("classeannee", '{"idAnnee":3,"idClasse":8}');
+        $this->post("classeannee", '{"classeAnneeKey": {"idAnnee":1,"idClasse":4}}');
+        $this->post("classeannee", '{"classeAnneeKey": {"idAnnee":1,"idClasse":5}}');
+        $this->post("classeannee", '{"classeAnneeKey": {"idAnnee":1,"idClasse":6}}');
+        $this->post("classeannee", '{"classeAnneeKey": {"idAnnee":2,"idClasse":7}}');
+        $this->post("classeannee", '{"classeAnneeKey": {"idAnnee":3,"idClasse":8}}');
 
         dump("Données créées");
     }
