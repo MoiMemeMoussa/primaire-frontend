@@ -24,7 +24,7 @@ class ClasseEnseignant
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="id_classe", type="integer", nullable=false)
+     * @ORM\Column(name="idClasse", type="integer", nullable=false)
      */
     private $idclasse;
 
@@ -32,21 +32,21 @@ class ClasseEnseignant
      * @var string
      *
      * @ORM\Id
-     * @ORM\Column(name="id_annee", type="string", length=255, nullable=false)
+     * @ORM\Column(name="idAnnee", type="string", length=255, nullable=false)
      */
     private $idannee;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="end_date", type="date", nullable=true)
+     * @ORM\Column(name="endDate", type="date", nullable=true)
      */
     private $enddate;
 
     /**
      * @var \DateTime|null
      *
-     * @ORM\Column(name="start_date", type="date", nullable=true)
+     * @ORM\Column(name="startDate", type="date", nullable=true)
      */
     private $startdate;
 

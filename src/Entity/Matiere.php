@@ -16,7 +16,7 @@ class Matiere
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="id_matiere", type="integer", nullable=false)
+     * @ORM\Column(name="idMatiere", type="integer", nullable=false)
      */
     private $idmatiere;
 

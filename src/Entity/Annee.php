@@ -17,7 +17,7 @@ class Annee
      * @var int
      *
      * @ORM\Id
-     * @ORM\Column(name="id_annee", type="integer", nullable=false)
+     * @ORM\Column(name="idAnnee", type="integer", nullable=false)
      */
     private $idannee;
 
