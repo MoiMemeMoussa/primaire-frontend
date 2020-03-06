@@ -45,8 +45,8 @@ class YearType extends AbstractType
 
     public function finishView(FormView $view, FormInterface $form, array $options)
     {
-        //$newChoice = new ChoiceView(array(), 'add', 'Nouvelle année');
+        $newChoice = new ChoiceView(array(), 'add', 'Nouvelle année');
 
-        //array_unshift($view->children['Annee_scolaire']->vars['choices'], $newChoice);
+        array_unshift($view->children['Annee_scolaire']->vars['choices'], $newChoice);
     }
 }
