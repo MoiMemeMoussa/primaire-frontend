@@ -18,7 +18,16 @@ class YearsController extends AbstractController
     {
         $years = $this->computeYears();
 
-        $year = $years[1];
+        $year = null;
+
+        if (count($years) > 1)
+        {
+            $year = $years[1];
+        }
+        else
+        {
+            $year = new Annee();
+        }
 
         $yearForm = $this->createForm(YearType::class, $year);
 
@@ -43,13 +52,10 @@ class YearsController extends AbstractController
 
         foreach ($years as $year)
         {
-            //$classes = RestAPI::getAll("/classes", "Classe");
             $classes = RestAPI::getAll("/annees/" . $year->getIdAnnee() . "/classes", "Classe");
 
             $year->setClasses($classes);
         }
-
-        dump($years);
 
         $newYear = new Annee();
         $newYear->setValue("Nouvelle année");
